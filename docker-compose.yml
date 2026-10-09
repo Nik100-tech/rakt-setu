@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: rakt-setu-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: raktsetu
+      POSTGRES_PASSWORD: raktsetu
+      POSTGRES_DB: rakt_setu
+    ports:
+      - "5432:5432"
+    volumes:
+      - rakt_setu_pgdata:/var/lib/postgresql/data
+
+volumes:
+  rakt_setu_pgdata:
